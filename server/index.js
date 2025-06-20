@@ -11,7 +11,7 @@ require("dotenv").config();
 
 app.use(
   cors({
-    origin: ["http://localhost:5173", "https://minilink.onrender.com"],
+    origin: process.env.CORS_ORIGIN,
     credentials: true,
   })
 );

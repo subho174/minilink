@@ -5,16 +5,16 @@ import {
   DialogDescription,
   DialogFooter,
   DialogClose,
-} from "../components/ui/dialog";
-import { Input } from "../components/ui/input";
-import { Label } from "../components/ui/label";
-import { Button } from "../components/ui/button";
-import { Dialog, DialogContent, DialogTrigger } from "../components/ui/dialog";
+} from "./ui/dialog";
+import { Input } from "./ui/input";
+import { Label } from "./ui/label";
+import { Button } from "./ui/button";
+import { Dialog, DialogContent, DialogTrigger } from "./ui/dialog";
 import axios from "axios";
 import { Link, Loader2 } from "lucide-react";
 import { toast } from "sonner";
 
-function CreateURLModal({ onClose, onCreateSuccess }) {
+function CreateURLModal({ onCreateSuccess }) {
   const [originalURL, setoriginalURL] = useState("");
   const [customCode, setcustomCode] = useState("");
   const [isLoading, setisLoading] = useState(false);
