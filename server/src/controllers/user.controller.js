@@ -3,8 +3,7 @@ const ApiError = require("../../utils/ApiError");
 const ApiResponse = require("../../utils/ApiResponse");
 const asyncHandler = require("../../utils/asyncHandler");
 const { generateAccessAndRefreshToken } = require("../../utils/generateTokens");
-
-const options = process.env.options;
+const options = require('../../utils/constants');
 
 const signUp = asyncHandler(async (req, res) => {
   const { email, password } = req.body;

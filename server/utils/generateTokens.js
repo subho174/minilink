@@ -1,8 +1,7 @@
 const jwt = require("jsonwebtoken");
 const User = require("../src/model/user.model");
 const ApiError = require("./ApiError");
-
-const options = process.env.options;
+const options = require('../utils/constants');
 
 const generateAccessAndRefreshToken = async function (userId) {
   try {
