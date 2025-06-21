@@ -7,6 +7,8 @@ const urlRouter = require("./src/routes/urlRouter");
 const { rateLimiter } = require("./src/middleware/rateLimiter.middleware");
 
 const app = express();
+app.set("trust proxy", 1);
+
 require("dotenv").config();
 
 app.use(
