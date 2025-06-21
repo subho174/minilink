@@ -10,7 +10,7 @@ const urlRouter = Router();
 
 urlRouter.get("/:uniqueCode", redirectToOriginalURL);
 
-urlRouter.use(verifyJWT); // applied to all routes below this line
+urlRouter.use(verifyJWT); // applied to all routes below this line to check authenticity
 
 urlRouter.post("/create-short-url", createShortUrl);
 urlRouter.get("/analytics/click-stats", getClickStats);

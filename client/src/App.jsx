@@ -1,4 +1,3 @@
-import React from "react";
 import { Routes, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import SignInPage from "./pages/SignIn";
@@ -8,10 +7,11 @@ import axios from "axios";
 import NotFound from "./pages/NotFound";
 
 const App = () => {
+  // basic setup for axios requests
   const api = axios.create({
-      baseURL: import.meta.env.VITE_BACKEND_URL,
-      withCredentials: true,
-    });
+    baseURL: import.meta.env.VITE_BACKEND_URL,
+    withCredentials: true,
+  });
 
   return (
     <Routes>

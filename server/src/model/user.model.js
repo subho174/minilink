@@ -22,6 +22,7 @@ const userSchema = new Schema({
   },
 });
 
+// saving modified password before storing in db
 userSchema.pre("save", async function (next) {
   if (!this.isModified("password")) return next();
 
@@ -29,10 +30,12 @@ userSchema.pre("save", async function (next) {
   next();
 });
 
+// checking password validity
 userSchema.methods.isPasswordCorrect = async function (password) {
   return await bcrypt.compare(password, this.password);
 };
 
+// generating tokens individually
 userSchema.methods.generateAccessToken = function () {
   return jwt.sign(
     {
@@ -57,6 +60,7 @@ userSchema.methods.generateRefreshToken = function () {
     }
   );
 };
+
 const User = mongoose.model("User", userSchema);
 
 module.exports = User;

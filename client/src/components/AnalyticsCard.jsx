@@ -20,8 +20,9 @@ function AnalyticsCard({ urlDetails }) {
   const { uniqueCode, originalURL, expiresAt, clickCount, lastClickedAt } =
     urlDetails;
 
+  // function to convert date in a well formatted manner
   const formatDate = (dateString) => {
-    if (!dateString) return "Never";
+    if (!dateString) return "Not clicked yet";
     const date = new Date(dateString);
     return date.toLocaleString("en-IN", {
       year: "numeric",
@@ -44,7 +45,7 @@ function AnalyticsCard({ urlDetails }) {
             target="_blank"
             rel="noopener noreferrer"
             title={shortURL}
-            className="text-blue-600 font-semibold truncate hover:underline hover:underline-offset-2"
+            className="w-60 md:w-65 lg:w-80 xl:w-65 2xl:w-85 text-blue-600 font-semibold truncate hover:underline hover:underline-offset-2"
           >
             {shortURL}
           </a>
@@ -87,7 +88,7 @@ function AnalyticsCard({ urlDetails }) {
           </p>
           <p>
             <span className="font-medium text-gray-700">Last Clicked At:</span>{" "}
-            {lastClickedAt ? formatDate(lastClickedAt) : "No click yet"}
+            {formatDate(lastClickedAt)}
           </p>
           <div className="flex justify-between items-center">
             <p>

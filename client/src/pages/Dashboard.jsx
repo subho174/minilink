@@ -21,16 +21,23 @@ export default function Dashboard({ api }) {
         const res = await api.get("/url/analytics/click-stats");
         setpreviousShortURLs(res.data.data);
       } catch (err) {
-        toast.error(err.response.data.errorMessage || err.response.data || "Something went wrong. Please try again")
+        toast.error(
+          err.response.data.errorMessage ||
+            err.response.data ||
+            "Something went wrong. Please try again"
+        );
         console.error("Error fetching short URLs:", err);
       } finally {
         setLoading(false);
       }
     };
+
+    //  fetching old short urls
     fetchPreviousShortURLs();
   }, []);
 
   const logOut = async () => {
+    // logging out user
     try {
       setisLoggingOut(true);
       const res = await api.post("/user/logout");
@@ -43,6 +50,8 @@ export default function Dashboard({ api }) {
       setisLoggingOut(false);
     }
   };
+  
+  // function to include new URL in the list
   const saveNewURL = (newUrl) => {
     setpreviousShortURLs((prev) => [newUrl, ...prev]);
   };
@@ -55,7 +64,11 @@ export default function Dashboard({ api }) {
         </a>
         <div className="flex gap-4">
           <CreateURLModal onCreateSuccess={saveNewURL} />
-          <Button variant="destructive" disabled={isLoggingOut} onClick={logOut}>
+          <Button
+            variant="destructive"
+            disabled={isLoggingOut}
+            onClick={logOut}
+          >
             {isLoggingOut ? (
               <>
                 <Loader2 className="animate-spin" /> Logging Out...

@@ -20,12 +20,13 @@ export function LoginForm({
   const [password, setPassword] = useState("");
   const [isLoading, setisLoading] = useState(false);
 
+  // function to submit sign-in or sign-up form
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // setError("");
     setisLoading(true);
 
     try {
+      // setting api endpoint dynamically based on sign-in or sign-up
       const endpoint = isLogin ? "/user/sign-in" : "/user/sign-up";
       const res = await api.post(endpoint, { email, password });
       toast.success(res.data.message);
@@ -78,15 +79,12 @@ export function LoginForm({
                 />
               </div>
 
-              {/* {error && (
-                <p className="text-red-500 text-sm text-center">{error}</p>
-              )} */}
-
               <Button
                 type="submit"
                 className="w-full text-base"
                 disabled={isLoading}
               >
+                {/* dynamincally setting button text based on sign type and loading state */}
                 {isLoading ? (
                   <>
                     <Loader2 className="animate-spin" />{" "}

@@ -23,6 +23,7 @@ function CreateURLModal({ onCreateSuccess }) {
     e.preventDefault();
     setisLoading(true);
 
+    // validation
     if (!originalURL) {
       toast.warning("Original URL is required.");
       setisLoading(false);
@@ -30,6 +31,7 @@ function CreateURLModal({ onCreateSuccess }) {
     }
 
     try {
+      // creating a short url
       const res = await axios.post(
         `${import.meta.env.VITE_BACKEND_URL}/url/create-short-url`,
         {
@@ -41,7 +43,7 @@ function CreateURLModal({ onCreateSuccess }) {
       toast.success(res.data.message);
       setoriginalURL("");
       setcustomCode("");
-      onCreateSuccess(res.data.data);
+      onCreateSuccess(res.data.data); // setting new url in previous url list
     } catch (err) {
       console.error(err);
       toast.error(

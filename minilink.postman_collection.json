@@ -1,0 +1,173 @@
+{
+	"info": {
+		"_postman_id": "b6af837c-5b02-4209-82f8-f871e4b31609",
+		"name": "MiniLink",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "43117182"
+	},
+	"item": [
+		{
+			"name": "user",
+			"item": [
+				{
+					"name": "signUp",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"test@example.com\",\r\n  \"password\": \"12345678\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server-user}}/sign-up",
+							"host": [
+								"{{server-user}}"
+							],
+							"path": [
+								"sign-up"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "signIn",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"test@example.com\",\r\n  \"password\": \"12345678\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server-user}}/sign-in",
+							"host": [
+								"{{server-user}}"
+							],
+							"path": [
+								"sign-in"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "logOut",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server-user}}/logout",
+							"host": [
+								"{{server-user}}"
+							],
+							"path": [
+								"logout"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "URL",
+			"item": [
+				{
+					"name": "createShortUrl",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"originalURL\": \"https://daily.dev/blog/full-stack-development-complete-guide-2024\",\r\n  \"customCode\": \"web dev\" // optional\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server-url}}/create-short-url",
+							"host": [
+								"{{server-url}}"
+							],
+							"path": [
+								"create-short-url"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "redirectToOriginalURL",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{server-url}}/web dev",
+							"host": [
+								"{{server-url}}"
+							],
+							"path": [
+								"web dev"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getClickStats",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{server-url}}/analytics/click-stats",
+							"host": [
+								"{{server-url}}"
+							],
+							"path": [
+								"analytics",
+								"click-stats"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
